@@ -10,6 +10,15 @@ public class SortingTechniquesProject {
         System.out.print("input array size: ");
         int size = scanner.nextInt();
         
+        while (size <= 0) {
+        System.out.print(" Enter array size again (must be greater than 0): ");
+        size = scanner.nextInt();
+
+        if (size <= 0) {
+        System.out.println("Invalid input. Please enter a number greater than 0.");
+    }
+}
+        
         int[] numbers = new int[size];
         
         System.out.println("input array elements:");
