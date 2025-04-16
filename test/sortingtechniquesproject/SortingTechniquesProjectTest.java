@@ -204,6 +204,47 @@ public class SortingTechniquesProjectTest {
         SortingTechniquesProject.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
+    // ----------------- Heap Sort -----------------
+
+@Test
+public void testHeapSort_sortedArray() {
+    int[] input = {1, 2, 3, 4, 5};
+    int[] expected = {1, 2, 3, 4, 5};
+    SortingTechniquesProject.heapSort(input);
+    assertArrayEquals(expected, input);
+}
+
+@Test
+public void testHeapSort_unsortedArray() {
+    int[] input = {5, 4, 3, 2, 1};
+    int[] expected = {1, 2, 3, 4, 5};
+    SortingTechniquesProject.heapSort(input);
+    assertArrayEquals(expected, input);
+}
+
+@Test
+public void testHeapSort_withDuplicates() {
+    int[] input = {3, 2, 3, 1, 2};
+    int[] expected = {1, 2, 2, 3, 3};
+    SortingTechniquesProject.heapSort(input);
+    assertArrayEquals(expected, input);
+}
+
+@Test
+public void testHeapSort_singleElement() {
+    int[] input = {7};
+    int[] expected = {7};
+    SortingTechniquesProject.heapSort(input);
+    assertArrayEquals(expected, input);
+}
+
+@Test
+public void testHeapSort_twoElements() {
+    int[] input = {9, 1};
+    int[] expected = {1, 9};
+    SortingTechniquesProject.heapSort(input);
+    assertArrayEquals(expected, input);
+}
 }
 
     
