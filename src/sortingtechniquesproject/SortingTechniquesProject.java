@@ -122,56 +122,42 @@ public class SortingTechniquesProject {
 
     public static int[] mergeSort(int[] inputArray) {
         int size = inputArray.length;
-        if (size < 2){
-            if(size==1)
+        if (size < 2)
                 return inputArray;
-            return null;              }
-        int mid = size / 2;
-        int leftSize = mid;
-        int rightSize = size - mid;
-        int[] left = new int[leftSize];
-        int[] right = new int[rightSize];
-        for (int i = 0; i < mid; i++) {
-            left[i] = inputArray[i];
-        }
-        for (int i = mid; i < size; i++) {
-            right[i - mid] = inputArray[i];
-        }
-        mergeSort(left);
-        mergeSort(right);
-        merge(left, right, inputArray);
-        return inputArray;
-    }
-    
-public static int[] merge(int[] left, int[] right, int[] arr) {
-        int leftSize = left.length;
-        int rightSize = right.length;
-        int i = 0, j = 0, k = 0;
-        while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-                arr[k] = left[i];
-                i++;
-                k++;
-            } else {
-                arr[k] = right[j];
-                k++;
-                j++;
-            }
-        }
-        while (i < leftSize) {
-            arr[k] = left[i];
-            k++;
-            i++;
-        }
-        while (j < rightSize) {
-            arr[k] = right[j];
-            k++;
-            j++;
-        }
-        return arr;
+         int[]temp=new int[size]; 
+        mergeSortHelper(inputArray, temp , 0, size-1);
+        return inputArray; }
         
+private static void mergeSortHelper(int[] array, int[] temp, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSortHelper(array, temp, left, mid);       
+        mergeSortHelper(array, temp, mid + 1, right);  
+        merge(array, temp, left, mid, right);          
     }
-    
+}
+
+private static void merge(int[] array, int[] temp, int left, int mid, int right) {
+    for (int i = left; i <= right; i++) {
+        temp[i] = array[i]; 
+    }
+
+    int i = left, j = mid + 1, k = left;  
+
+    while (i <= mid && j <= right) {
+        if (temp[i] <= temp[j]) {
+            array[k++] = temp[i++];  
+        } else {
+            array[k++] = temp[j++]; 
+        }
+    }
+
+    while (i <= mid) {
+        array[k++] = temp[i++];  
+    }
+}
+ 
     public static int[] quickSort(int[] arr, int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
