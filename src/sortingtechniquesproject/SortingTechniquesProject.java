@@ -58,7 +58,49 @@ public class SortingTechniquesProject {
         mergeSort(mergeSortedNumbers);
         System.out.print("mergeSort: ");
         printArray(mergeSortedNumbers);
+    
+      System.out.println("\nPerformance Test:");
+
+int[] sizes = {100, 1000, 5000, 10000};
+
+for (int sizeTest : sizes) {
+    int[] testArray = new int[sizeTest];
+    for (int i = 0; i < sizeTest; i++) {
+        testArray[i] = (int) (Math.random() * sizeTest);
     }
+
+    int[] bubbleTest = testArray.clone();
+    long start = System.nanoTime();
+    bubblesort(bubbleTest);
+    long end = System.nanoTime();
+    System.out.println("Bubble Sort (" + sizeTest + " elements): " + (end - start) + " ns");
+
+    int[] quickTest = testArray.clone();
+    start = System.nanoTime();
+    quickSort(quickTest, 0, quickTest.length - 1);
+    end = System.nanoTime();
+    System.out.println("Quick Sort (" + sizeTest + " elements): " + (end - start) + " ns");
+
+    int[] selectionTest = testArray.clone();
+    start = System.nanoTime();
+    selectionSort(selectionTest);
+    end = System.nanoTime();
+    System.out.println("Selection Sort (" + sizeTest + " elements): " + (end - start) + " ns");
+
+    int[] insertionTest = testArray.clone();
+    start = System.nanoTime();
+    insertionSort(insertionTest);
+    end = System.nanoTime();
+    System.out.println("Insertion Sort (" + sizeTest + " elements): " + (end - start) + " ns");
+
+    int[] mergeTest = testArray.clone();
+    start = System.nanoTime();
+    mergeSort(mergeTest);
+    end = System.nanoTime();
+    System.out.println("Merge Sort (" + sizeTest + " elements): " + (end - start) + " ns");
+
+    System.out.println();
+}}
     
     public static void printArray(int[] arr) {
         for (int num : arr) {
