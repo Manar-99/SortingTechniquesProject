@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class SortingTechniquesProject {
 
 
+
       public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("input array size: ");
@@ -19,8 +20,7 @@ public class SortingTechniquesProject {
     }
 }
         
-        int[] numbers = new int[size];
-        
+        int[] numbers = new int[size];        
         System.out.println("input array elements:");
         for (int i = 0; i < size; i++) {
             System.out.print("element " + (i + 1) + ": ");
@@ -58,49 +58,12 @@ public class SortingTechniquesProject {
         mergeSort(mergeSortedNumbers);
         System.out.print("mergeSort: ");
         printArray(mergeSortedNumbers);
-    
-      System.out.println("\nPerformance Test:");
-
-int[] sizes = {100, 1000, 5000, 10000};
-
-for (int sizeTest : sizes) {
-    int[] testArray = new int[sizeTest];
-    for (int i = 0; i < sizeTest; i++) {
-        testArray[i] = (int) (Math.random() * sizeTest);
+        
+        int[] heapSortedNumbers = numbers.clone();
+        heapSort(heapSortedNumbers);
+        System.out.print("heapSort: ");
+        printArray(heapSortedNumbers);
     }
-
-    int[] bubbleTest = testArray.clone();
-    long start = System.nanoTime();
-    bubblesort(bubbleTest);
-    long end = System.nanoTime();
-    System.out.println("Bubble Sort (" + sizeTest + " elements): " + (end - start) + " ns");
-
-    int[] quickTest = testArray.clone();
-    start = System.nanoTime();
-    quickSort(quickTest, 0, quickTest.length - 1);
-    end = System.nanoTime();
-    System.out.println("Quick Sort (" + sizeTest + " elements): " + (end - start) + " ns");
-
-    int[] selectionTest = testArray.clone();
-    start = System.nanoTime();
-    selectionSort(selectionTest);
-    end = System.nanoTime();
-    System.out.println("Selection Sort (" + sizeTest + " elements): " + (end - start) + " ns");
-
-    int[] insertionTest = testArray.clone();
-    start = System.nanoTime();
-    insertionSort(insertionTest);
-    end = System.nanoTime();
-    System.out.println("Insertion Sort (" + sizeTest + " elements): " + (end - start) + " ns");
-
-    int[] mergeTest = testArray.clone();
-    start = System.nanoTime();
-    mergeSort(mergeTest);
-    end = System.nanoTime();
-    System.out.println("Merge Sort (" + sizeTest + " elements): " + (end - start) + " ns");
-
-    System.out.println();
-}}
     
     public static void printArray(int[] arr) {
         for (int num : arr) {
@@ -111,21 +74,23 @@ for (int sizeTest : sizes) {
 
     
 
-    public static int[] bubblesort(int[] numbers) {
-    boolean swapped;
-    for (int i = 0; i < numbers.length - 1; i++) {
-        swapped = false;
-        for (int j = 0; j < numbers.length - i - 1; j++) {
-            if (numbers[j + 1] < numbers[j]) {
-                int temp = numbers[j];
-                numbers[j] = numbers[j + 1];
-                numbers[j + 1] = temp;
+    public static int[] bubblesort(int[] array) {
+    int n = array.length;
+    for (int i = 0; i < n - 1; i++) {
+        boolean swapped = false;
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
                 swapped = true;
             }
         }
-        if (!swapped) break;
+        if (!swapped) {
+            break;
+        }
     }
-    return numbers;
+    return array;
 }
 
     
@@ -158,56 +123,42 @@ for (int sizeTest : sizes) {
 
     public static int[] mergeSort(int[] inputArray) {
         int size = inputArray.length;
-        if (size < 2){
-            if(size==1)
+        if (size < 2)
                 return inputArray;
-            return null;              }
-        int mid = size / 2;
-        int leftSize = mid;
-        int rightSize = size - mid;
-        int[] left = new int[leftSize];
-        int[] right = new int[rightSize];
-        for (int i = 0; i < mid; i++) {
-            left[i] = inputArray[i];
-        }
-        for (int i = mid; i < size; i++) {
-            right[i - mid] = inputArray[i];
-        }
-        mergeSort(left);
-        mergeSort(right);
-        merge(left, right, inputArray);
-        return inputArray;
-    }
-    
-public static int[] merge(int[] left, int[] right, int[] arr) {
-        int leftSize = left.length;
-        int rightSize = right.length;
-        int i = 0, j = 0, k = 0;
-        while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-                arr[k] = left[i];
-                i++;
-                k++;
-            } else {
-                arr[k] = right[j];
-                k++;
-                j++;
-            }
-        }
-        while (i < leftSize) {
-            arr[k] = left[i];
-            k++;
-            i++;
-        }
-        while (j < rightSize) {
-            arr[k] = right[j];
-            k++;
-            j++;
-        }
-        return arr;
+         int[]temp=new int[size]; 
+        mergeSortHelper(inputArray, temp , 0, size-1);
+        return inputArray; }
         
+private static void mergeSortHelper(int[] array, int[] temp, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSortHelper(array, temp, left, mid);       
+        mergeSortHelper(array, temp, mid + 1, right);  
+        merge(array, temp, left, mid, right);          
     }
-    
+}
+
+private static void merge(int[] array, int[] temp, int left, int mid, int right) {
+    for (int i = left; i <= right; i++) {
+        temp[i] = array[i]; 
+    }
+
+    int i = left, j = mid + 1, k = left;  
+
+    while (i <= mid && j <= right) {
+        if (temp[i] <= temp[j]) {
+            array[k++] = temp[i++];  
+        } else {
+            array[k++] = temp[j++]; 
+        }
+    }
+
+    while (i <= mid) {
+        array[k++] = temp[i++];  
+    }
+}
+ 
     public static int[] quickSort(int[] arr, int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
@@ -232,6 +183,37 @@ private static int partition(int[] arr, int low, int high) {
     arr[i + 1] = arr[high];
     arr[high] = temp;
     return i + 1;
+}
+public static void heapSort(int[] array) {
+    int n = array.length;
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(array, n, i);
+
+    for (int i = n - 1; i > 0; i--) {
+        int temp = array[0];
+        array[0] = array[i];
+        array[i] = temp;
+        heapify(array, i, 0);
+    }
+}
+
+private static void heapify(int[] array, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && array[left] > array[largest])
+        largest = left;
+
+    if (right < n && array[right] > array[largest])
+        largest = right;
+
+    if (largest != i) {
+        int swap = array[i];
+        array[i] = array[largest];
+        array[largest] = swap;
+        heapify(array, n, largest);
+    }
 }}
 
 
