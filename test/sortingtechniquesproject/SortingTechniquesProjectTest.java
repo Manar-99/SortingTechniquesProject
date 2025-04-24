@@ -12,28 +12,28 @@ public class SortingTechniquesProjectTest {
     public void testBubbleSort_sortedArray() {
         int[] input = {1, 2, 3, 4, 5};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.bubblesort(input));
+        assertArrayEquals(expected, SortingTechniques.bubblesort(input));
     }
 
     @Test
     public void testBubbleSort_unsortedArray() {
         int[] input = {5, 4, 3, 2, 1};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.bubblesort(input));
+        assertArrayEquals(expected, SortingTechniques.bubblesort(input));
     }
 
     @Test
     public void testBubbleSort_withDuplicates() {
         int[] input = {3, 2, 3, 1, 2};
         int[] expected = {1, 2, 2, 3, 3};
-        assertArrayEquals(expected, SortingTechniquesProject.bubblesort(input));
+        assertArrayEquals(expected, SortingTechniques.bubblesort(input));
     }
 
     @Test
     public void testBubbleSort_singleElement() {
         int[] input = {7};
         int[] expected = {7};
-        assertArrayEquals(expected, SortingTechniquesProject.bubblesort(input));
+        assertArrayEquals(expected, SortingTechniques.bubblesort(input));
     }
 
 
@@ -41,7 +41,7 @@ public class SortingTechniquesProjectTest {
     public void testBubbleSort_twoElements() {
         int[] input = {9, 1};
         int[] expected = {1, 9};
-        assertArrayEquals(expected, SortingTechniquesProject.bubblesort(input));
+        assertArrayEquals(expected, SortingTechniques.bubblesort(input));
     }
 
     // ----------------- Selection Sort -----------------
@@ -50,28 +50,28 @@ public class SortingTechniquesProjectTest {
     public void testSelectionSort_sortedArray() {
         int[] input = {1, 2, 3, 4, 5};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.selectionSort(input));
+        assertArrayEquals(expected, SortingTechniques.selectionSort(input));
     }
 
     @Test
     public void testSelectionSort_unsortedArray() {
         int[] input = {5, 4, 3, 2, 1};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.selectionSort(input));
+        assertArrayEquals(expected, SortingTechniques.selectionSort(input));
     }
 
     @Test
     public void testSelectionSort_withDuplicates() {
         int[] input = {3, 2, 3, 1, 2};
         int[] expected = {1, 2, 2, 3, 3};
-        assertArrayEquals(expected, SortingTechniquesProject.selectionSort(input));
+        assertArrayEquals(expected, SortingTechniques.selectionSort(input));
     }
 
     @Test
     public void testSelectionSort_singleElement() {
         int[] input = {7};
         int[] expected = {7};
-        assertArrayEquals(expected, SortingTechniquesProject.selectionSort(input));
+        assertArrayEquals(expected, SortingTechniques.selectionSort(input));
     }
 
 
@@ -79,7 +79,7 @@ public class SortingTechniquesProjectTest {
     public void testSelectionSort_twoElements() {
         int[] input = {9, 1};
         int[] expected = {1, 9};
-        assertArrayEquals(expected, SortingTechniquesProject.selectionSort(input));
+        assertArrayEquals(expected, SortingTechniques.selectionSort(input));
     }
 
     // ----------------- Insertion Sort -----------------
@@ -88,7 +88,7 @@ public class SortingTechniquesProjectTest {
     public void testInsertionSort_sortedArray() {
         int[] input = {1, 2, 3, 4};
         int[] expected = {1, 2, 3, 4};
-        SortingTechniquesProject.insertionSort(input);
+        SortingTechniques.insertionSort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -96,7 +96,7 @@ public class SortingTechniquesProjectTest {
     public void testInsertionSort_unsortedArray() {
         int[] input = {4, 3, 2, 1};
         int[] expected = {1, 2, 3, 4};
-        SortingTechniquesProject.insertionSort(input);
+        SortingTechniques.insertionSort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -104,7 +104,7 @@ public class SortingTechniquesProjectTest {
     public void testInsertionSort_withDuplicates() {
         int[] input = {2, 1, 2, 3};
         int[] expected = {1, 2, 2, 3};
-        SortingTechniquesProject.insertionSort(input);
+        SortingTechniques.insertionSort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -112,7 +112,7 @@ public class SortingTechniquesProjectTest {
     public void testInsertionSort_singleElement() {
         int[] input = {10};
         int[] expected = {10};
-        SortingTechniquesProject.insertionSort(input);
+        SortingTechniques.insertionSort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -121,7 +121,7 @@ public class SortingTechniquesProjectTest {
     public void testInsertionSort_twoElements() {
         int[] input = {20, 5};
         int[] expected = {5, 20};
-        SortingTechniquesProject.insertionSort(input);
+        SortingTechniques.insertionSort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -131,28 +131,28 @@ public class SortingTechniquesProjectTest {
     public void testMergeSort_sortedArray() {
         int[] input = {1, 2, 3, 4, 5};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.mergeSort(input));
+        assertArrayEquals(expected, SortingTechniques.mergeSort(input));
     }
 
     @Test
     public void testMergeSort_unsortedArray() {
         int[] input = {5, 3, 1, 4, 2};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.mergeSort(input));
+        assertArrayEquals(expected, SortingTechniques.mergeSort(input));
     }
 
     @Test
     public void testMergeSort_withDuplicates() {
         int[] input = {3, 2, 3, 1, 2};
         int[] expected = {1, 2, 2, 3, 3};
-        assertArrayEquals(expected, SortingTechniquesProject.mergeSort(input));
+        assertArrayEquals(expected, SortingTechniques.mergeSort(input));
     }
 
     @Test
     public void testMergeSort_singleElement() {
         int[] input = {42};
         int[] expected = {42};
-        assertArrayEquals(expected, SortingTechniquesProject.mergeSort(input));
+        assertArrayEquals(expected, SortingTechniques.mergeSort(input));
     }
 
 
@@ -160,7 +160,7 @@ public class SortingTechniquesProjectTest {
     public void testMergeSort_twoElements() {
         int[] input = {9, 1};
         int[] expected = {1, 9};
-        assertArrayEquals(expected, SortingTechniquesProject.mergeSort(input));
+        assertArrayEquals(expected, SortingTechniques.mergeSort(input));
     }
 
     // ----------------- Quick Sort -----------------
@@ -169,7 +169,7 @@ public class SortingTechniquesProjectTest {
     public void testQuickSort_sortedArray() {
         int[] input = {1, 2, 3, 4, 5};
         int[] expected = {1, 2, 3, 4, 5};
-        SortingTechniquesProject.quickSort(input, 0, input.length - 1);
+        SortingTechniques.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
 
@@ -177,7 +177,7 @@ public class SortingTechniquesProjectTest {
     public void testQuickSort_unsortedArray() {
         int[] input = {6, 4, 2, 8, 1};
         int[] expected = {1, 2, 4, 6, 8};
-        SortingTechniquesProject.quickSort(input, 0, input.length - 1);
+        SortingTechniques.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
 
@@ -185,7 +185,7 @@ public class SortingTechniquesProjectTest {
     public void testQuickSort_withDuplicates() {
         int[] input = {3, 2, 3, 1, 2};
         int[] expected = {1, 2, 2, 3, 3};
-        SortingTechniquesProject.quickSort(input, 0, input.length - 1);
+        SortingTechniques.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
 
@@ -193,7 +193,7 @@ public class SortingTechniquesProjectTest {
     public void testQuickSort_singleElement() {
         int[] input = {99};
         int[] expected = {99};
-        SortingTechniquesProject.quickSort(input, 0, input.length - 1);
+        SortingTechniques.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
 
@@ -202,7 +202,7 @@ public class SortingTechniquesProjectTest {
     public void testQuickSort_twoElements() {
         int[] input = {4, 2};
         int[] expected = {2, 4};
-        SortingTechniquesProject.quickSort(input, 0, input.length - 1);
+        SortingTechniques.quickSort(input, 0, input.length - 1);
         assertArrayEquals(expected, input);
     }
     // ----------------- Heap Sort -----------------
@@ -211,7 +211,7 @@ public class SortingTechniquesProjectTest {
 public void testHeapSort_sortedArray() {
     int[] input = {1, 2, 3, 4, 5};
     int[] expected = {1, 2, 3, 4, 5};
-    SortingTechniquesProject.heapSort(input);
+    SortingTechniques.heapSort(input);
     assertArrayEquals(expected, input);
 }
 
@@ -219,7 +219,7 @@ public void testHeapSort_sortedArray() {
 public void testHeapSort_unsortedArray() {
     int[] input = {5, 4, 3, 2, 1};
     int[] expected = {1, 2, 3, 4, 5};
-    SortingTechniquesProject.heapSort(input);
+    SortingTechniques.heapSort(input);
     assertArrayEquals(expected, input);
 }
 
@@ -227,7 +227,7 @@ public void testHeapSort_unsortedArray() {
 public void testHeapSort_withDuplicates() {
     int[] input = {3, 2, 3, 1, 2};
     int[] expected = {1, 2, 2, 3, 3};
-    SortingTechniquesProject.heapSort(input);
+    SortingTechniques.heapSort(input);
     assertArrayEquals(expected, input);
 }
 
@@ -235,7 +235,7 @@ public void testHeapSort_withDuplicates() {
 public void testHeapSort_singleElement() {
     int[] input = {7};
     int[] expected = {7};
-    SortingTechniquesProject.heapSort(input);
+    SortingTechniques.heapSort(input);
     assertArrayEquals(expected, input);
 }
 
@@ -243,7 +243,7 @@ public void testHeapSort_singleElement() {
 public void testHeapSort_twoElements() {
     int[] input = {9, 1};
     int[] expected = {1, 9};
-    SortingTechniquesProject.heapSort(input);
+    SortingTechniques.heapSort(input);
     assertArrayEquals(expected, input);
 }
 
@@ -253,28 +253,28 @@ public void testHeapSort_twoElements() {
     public void testShellSort_sortedArray() {
         int[] input = {1, 2, 3, 4, 5};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+        assertArrayEquals(expected, SortingTechniques.shellSort(input));
     }
 
     @Test
     public void testShellSort_unsortedArray() {
         int[] input = {5, 4, 3, 2, 1};
         int[] expected = {1, 2, 3, 4, 5};
-        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+        assertArrayEquals(expected, SortingTechniques.shellSort(input));
     }
 
     @Test
     public void testShellSort_withDuplicates() {
         int[] input = {3, 2, 3, 1, 2};
         int[] expected = {1, 2, 2, 3, 3};
-        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+        assertArrayEquals(expected, SortingTechniques.shellSort(input));
     }
 
     @Test
     public void testShellSort_singleElement() {
         int[] input = {7};
         int[] expected = {7};
-        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+        assertArrayEquals(expected, SortingTechniques.shellSort(input));
     }
 
 
@@ -282,7 +282,7 @@ public void testHeapSort_twoElements() {
     public void testShellSort_twoElements() {
         int[] input = {9, 1};
         int[] expected = {1, 9};
-        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+        assertArrayEquals(expected, SortingTechniques.shellSort(input));
     }
 }
 
