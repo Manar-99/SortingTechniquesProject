@@ -3,6 +3,7 @@ package sortingtechniquesproject;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 public class SortingTechniquesProjectTest {
 
     // ----------------- Bubble Sort -----------------
@@ -245,6 +246,44 @@ public void testHeapSort_twoElements() {
     SortingTechniquesProject.heapSort(input);
     assertArrayEquals(expected, input);
 }
+
+// ----------------- Shell Sort -----------------
+
+    @Test
+    public void testShellSort_sortedArray() {
+        int[] input = {1, 2, 3, 4, 5};
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+    }
+
+    @Test
+    public void testShellSort_unsortedArray() {
+        int[] input = {5, 4, 3, 2, 1};
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+    }
+
+    @Test
+    public void testShellSort_withDuplicates() {
+        int[] input = {3, 2, 3, 1, 2};
+        int[] expected = {1, 2, 2, 3, 3};
+        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+    }
+
+    @Test
+    public void testShellSort_singleElement() {
+        int[] input = {7};
+        int[] expected = {7};
+        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+    }
+
+
+    @Test
+    public void testShellSort_twoElements() {
+        int[] input = {9, 1};
+        int[] expected = {1, 9};
+        assertArrayEquals(expected, SortingTechniquesProject.shellSort(input));
+    }
 }
 
     
