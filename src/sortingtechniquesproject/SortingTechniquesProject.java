@@ -110,7 +110,12 @@ public class SortingTechniquesProject {
             end = System.nanoTime();
             System.out.println("Heap Sort (" + sizeTest + " elements): " + (end - start) + " ns");
 
-            System.out.println();
+            int [ ] shell = numbers. clone () ;
+            shellSort (shell) ;
+            System.out.print ("shellSort: "); 
+            printArray (shell) ;
+            
+            
         }
       }
       
@@ -263,6 +268,29 @@ private static void heapify(int[] array, int n, int i) {
         array[largest] = swap;
         heapify(array, n, largest);
     }
-}}
+}
+
+public static int[ ]shellSort(int[] array) {
+    
+    int n = array.length;
+
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i++) {
+            int temp = array[i];
+            int j=i;
+
+            while ( j >= gap && array[j - gap] > temp) {
+                array[j] = array[j - gap];
+                j -= gap;
+            }
+
+            array[j] = temp;
+ }
+        
+}
+          return array;
+    
+}
+}
 
 
