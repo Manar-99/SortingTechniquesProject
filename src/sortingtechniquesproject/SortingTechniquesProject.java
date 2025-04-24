@@ -124,10 +124,13 @@ public class SortingTechniquesProject {
             System.out.print(num + " ");
         }
         System.out.println();
-    }
-
+    }   
+   
+    /**
+ * Bubble Sort: compares adjacent elements and swaps them if out of order.
+ * Simple but inefficient; best used on nearly-sorted or small datasets.
+ */
     
-
     public static int[] bubblesort(int[] numbers) {
     boolean swapped = true;
     long startTime = System.nanoTime();
@@ -148,6 +151,11 @@ public class SortingTechniquesProject {
 }
 
     
+    
+    /**
+ * Selection Sort: selects the smallest element and swaps it to the front.
+ * Time complexity is always O(n²); useful for learning, not large data.
+ */
     public static int[] selectionSort(int arr[]) {
         for (int i = 0; i < arr.length - 1; i++) {
             int smallest_element_index = i;
@@ -162,6 +170,11 @@ public class SortingTechniquesProject {
     }
 
     
+    
+    /**
+ * Insertion Sort: builds the sorted list one item at a time from the input.
+ * Efficient for small or mostly sorted data; O(n²) in worst case.
+ */
     public static void insertionSort(int[] data) {
         int n = data.length;
         for (int k = 1; k < n; k++) {
@@ -175,6 +188,11 @@ public class SortingTechniquesProject {
         }
     }
 
+    
+    /**
+ * Merge Sort: splits the array into halves, sorts them, then merges back.
+ * Guarantees O(n log n) time; uses more memory due to recursion.
+ */
     public static int[] mergeSort(int[] inputArray) {
         int size = inputArray.length;
         if (size < 2)
@@ -213,6 +231,11 @@ private static void merge(int[] array, int[] temp, int left, int mid, int right)
     }
 }
  
+
+/**
+ * Quick Sort: uses divide-and-conquer by partitioning the array recursively.
+ * Very fast on average; performance depends on pivot choice.
+ */
     public static int[] quickSort(int[] arr, int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
@@ -222,6 +245,11 @@ private static void merge(int[] array, int[] temp, int left, int mid, int right)
     return arr;
 }
 
+    
+    /**
+ * Partition: reorders elements so that those less than pivot come before it.
+ * Used in Quick Sort to divide the array into subarrays around a pivot.
+ */
 private static int partition(int[] arr, int low, int high) {
     int pivot = arr[high];
     int i = (low - 1);
@@ -238,6 +266,11 @@ private static int partition(int[] arr, int low, int high) {
     arr[high] = temp;
     return i + 1;
 }
+
+/**
+ * Heap Sort: builds a max-heap, then extracts the largest element repeatedly.
+ * Always O(n log n); useful for in-place and non-recursive sorting.
+ */
 public static void heapSort(int[] array) {
     int n = array.length;
     for (int i = n / 2 - 1; i >= 0; i--)
@@ -270,6 +303,11 @@ private static void heapify(int[] array, int n, int i) {
     }
 }
 
+
+/**
+ * Shell Sort: improves insertion sort by comparing distant elements first.
+ * Performance varies with gap sequence; faster than bubble/insertion.
+ */
 public static int[ ]shellSort(int[] array) {
     
     int n = array.length;
